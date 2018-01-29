@@ -51,8 +51,8 @@ if File.file?(swiftlint_binary_path) then
   swiftlint.lint_files inline_mode: true
 end
 
-# Send warning from iOS build if possible
-if File.file?(build_report_file)
+# Send iOS build results if possible
+if File.file?(build_report_file) then
   xcode_summary.ignored_files = '**/Pods/**'
   xcode_summary.inline_mode = true
   xcode_summary.report build_report_file
