@@ -25,8 +25,8 @@ fail("Only hotfix and release can point to master.") if !can_be_merged_to_master
 
 # Throw descriptive warnings
 warn("Branch name should have `release/`, `hotfix/`, `fix/`, `housekeep/` or `feature/` prefix.") if !has_correct_prefix
-warn("Feature of fix pull request title should include JIRA-ID.") if is_feature_or_fix and !title_contains_jira_id
-warn("Feature of fix pull request branch should include JIRA-ID.") if is_feature_or_fix and !branch_contains_jira_id
+warn("Feature or fix PR title should include JIRA-ID and short description.") if is_feature_or_fix and !title_contains_jira_id
+warn("Feature or fix PR branch name should include JIRA-ID and short description.") if is_feature_or_fix and !branch_contains_jira_id
 warn("Pull request is classed as Work in Progress") if is_pr_wip
 warn("This pull request is too big.") if is_pr_big
 
