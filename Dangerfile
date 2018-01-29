@@ -2,6 +2,8 @@
 # Configuration
 jira_link = "https://thefuntasty.atlassian.net/browse/"
 max_pr_length = 500
+swiftlint_binary_path = './Pods/SwiftLint/swiftlint'
+build_report_file = 'build/reports/errors.json'
 
 # Regular expressions for PR title and branch
 title_name_check = /^([A-Z]{2,}-\d+)\s\w{2,}/
@@ -34,15 +36,21 @@ if title_contains_jira_id then
   message(":large_blue_diamond: [#{jira_id}](#{jira_link}#{jira_id})")
 end
 
-# Lint files
-swiftlint.binary_path = './Pods/SwiftLint/swiftlint'
-swiftlint.max_num_violations = 20
-swiftlint.lint_files inline_mode: true
-
-# Ignoring warnings from Pods
-xcode_summary.ignored_files = '**/Pods/**'
-xcode_summary.inline_mode = true
-xcode_summary.report 'build/reports/errors.json'
-
 # Check commit messages
 commit_lint.check warn: :all
+
+# Lint Swift files if possible
+if File.file?(swiftlint_binary_path) then
+  swiftlint.binary_path = './Pods/SwiftLint/swiftlint'
+  swiftlint.max_num_violations = 20
+  swiftlint.lint_files inline_mode: true
+end
+
+# Send warning from iOS build if possible
+if File.file?(build_report_file)
+  xcode_summary.ignored_files = '**/Pods/**'
+  xcode_summary.inline_mode = true
+  xcode_summary.report build_report_file
+end
+
+
