@@ -31,9 +31,14 @@ warn("Pull request is classed as Work in Progress") if is_pr_wip
 warn("This pull request is too big.") if is_pr_big
 
 # Send link to JIRA if possible
+def jira_message(link, id)
+  message(":large_blue_diamond: [#{id}](#{link}#{id})")
+end
+
 if title_contains_jira_id then
-  jira_id = title_contains_jira_id.captures.first
-  message(":large_blue_diamond: [#{jira_id}](#{jira_link}#{jira_id})")
+  jira_message(jira_link, title_contains_jira_id.captures.first)
+elsif branch_contains_jira_id then
+  jira_message(jira_link, branch_contains_jira_id.captures[1])
 end
 
 # Check commit messages
