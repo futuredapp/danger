@@ -58,4 +58,5 @@ if File.file?(build_report_file) then
   xcode_summary.report build_report_file
 end
 
-
+# Do not show out of range issues, not caused by the current PR
+github.dismiss_out_of_range_messages
