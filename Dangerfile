@@ -20,6 +20,9 @@ is_pr_wip = github.pr_title.include? "[WIP]"
 
 is_pr_big = git.lines_of_code > max_pr_length
 
+# Do not show out of range issues, not caused by the current PR
+github.dismiss_out_of_range_messages
+
 # Throw errors
 fail("Only hotfix and release can point to master.") if !can_be_merged_to_master and github.branch_for_base == "master"
 
@@ -57,6 +60,3 @@ if File.file?(build_report_file) then
   xcode_summary.inline_mode = true
   xcode_summary.report build_report_file
 end
-
-# Do not show out of range issues, not caused by the current PR
-github.dismiss_out_of_range_messages
