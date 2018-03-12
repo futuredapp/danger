@@ -27,7 +27,7 @@ We want to run Danger on CI, so the configuration here is focusing on it.
 First, we need to get the GitHub API token for the bot account, which will be commeting our pull requests and set it as an environment variable.
 
 ```
-export DANGER_GITHUB_API_TOKEN=3c8f096e5a5e48adb5a1b404e97078de
+export DANGER_GITHUB_API_TOKEN=XXXXX
 ```
 
 Second, if we use another Ruby tools and gems, we need to add the rules gem to our Gemfile and update the bundle.
