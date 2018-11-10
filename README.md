@@ -30,23 +30,32 @@ First, we need to get the GitHub API token for the bot account, which will be co
 export DANGER_GITHUB_API_TOKEN=XXXXX
 ```
 
-Second, if we use another Ruby tools and gems, we need to add the rules gem to our Gemfile and update the bundle.
+Second, if we do not use other Ruby tools and gems, we need to create Gemfile for our dependencies:
+
+```
+bundle init
+```
+
+Then we add the Danger rules gem as a dependency:
 
 ```
 bundle add thefuntasty_danger
 ```
 
-And then if we sometimes need to update our rules, we only need to call:
+And last if we need to install/update our rules, we only need to call:
 
 ```
-bundle update
+bundle [update]
 ```
 
-If we do not use any gems (is usually true for Android and react Native projects) then we can run this short script to install everything we need (if of course Ruby and bundler are installed):
+After the setup is finished we can simply import the Dangerfile from the gem.
+
+If we need to automate this (for CI) and do not have other Ruby dependencies then this short script will install everything we need and run Danger (if of course Ruby and bundler are installed):
 
 ```
 #!/usr/bin/env bash
-echo "source 'https://rubygems.org'; gem 'thefuntasty_danger'" > Gemfile
+bundle init
+bundle add thefuntasty_danger
 bundle install
 echo "danger.import_dangerfile(gem: 'thefuntasty_danger')" > Dangerfile
 bundle exec danger
