@@ -45,7 +45,9 @@ bundle add thefuntasty_danger
 And last if we need to install/update our rules, we only need to call:
 
 ```
-bundle [update]
+bundle install
+# or
+bundle update
 ```
 
 After the setup is finished we can simply import the Dangerfile from the gem.
