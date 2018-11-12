@@ -6,7 +6,7 @@ build_report_file = 'build/reports/errors.json'
 
 # Regular expressions for PR title and branch
 pr_title_pattern = /^([A-Z]{2,}-\d+)\s\w{2,}/
-branch_name_pattern = /^(feature|hotfix|fix)\/([A-Z]{2,})-\d+/
+branch_name_pattern = /^(feature|hotfix|fix)\/([A-Z]{2,})-\d+-/
 
 # Convenience variables
 has_correct_prefix = github.branch_for_head.match(/^(feature|hotfix|fix|release|housekeep)\//)
