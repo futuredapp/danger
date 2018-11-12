@@ -1,4 +1,3 @@
-
 # Configuration
 jira_link = "https://thefuntasty.atlassian.net/browse/"
 max_pr_length = 500
@@ -6,18 +5,18 @@ swiftlint_binary_path = './Pods/SwiftLint/swiftlint'
 build_report_file = 'build/reports/errors.json'
 
 # Regular expressions for PR title and branch
-title_name_check = /^([A-Z]{2,}-\d+)\s\w{2,}/
-branch_jira_id_check = /^(feature|hotfix|fix)\/([A-Z]{2,})-\d+-/
+pr_title_pattern = /^([A-Z]{2,}-\d+)\s\w{2,}/
+branch_name_pattern = /^(feature|hotfix|fix)\/([A-Z]{2,})-\d+-/
 
 # Convenience variables
 has_correct_prefix = github.branch_for_head.match(/^(feature|hotfix|fix|release|housekeep)\//)
 is_feature_or_fix = github.branch_for_head.match(/^(feature|hotfix|fix)\//)
 can_be_merged_to_master = github.branch_for_head.match(/^(release|hotfix|)\//)
-branch_contains_jira_id = github.branch_for_head.match(/^(feature|hotfix|fix)\/([A-Z]{2,}-\d+)-/)
 
-title_contains_jira_id = github.pr_title.match(title_name_check)
+branch_contains_jira_id = github.branch_for_head.match(branch_name_pattern)
+title_contains_jira_id = github.pr_title.match(pr_title_pattern)
+
 is_pr_wip = github.pr_title.include? "[WIP]"
-
 is_pr_big = git.lines_of_code > max_pr_length
 
 # Do not show out of range issues, not caused by the current PR
@@ -45,7 +44,7 @@ elsif branch_contains_jira_id then
 end
 
 # Check commit messages
-commit_lint.check warn: :all
+commit_lint.check warn: :all, disable: [:subject_length]
 
 # Lint Swift files if possible
 if File.file?(swiftlint_binary_path) then
