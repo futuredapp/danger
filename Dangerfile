@@ -17,7 +17,7 @@ branch_contains_jira_id = github.branch_for_head.match(branch_name_pattern)
 title_contains_jira_id = github.pr_title.match(pr_title_pattern)
 
 is_pr_wip = github.pr_title.include? "[WIP]"
-is_pr_big = git.lines_of_code > max_pr_length
+is_pr_big = git.insertions > max_pr_length
 
 # Do not show out of range issues, not caused by the current PR
 github.dismiss_out_of_range_messages
