@@ -1,11 +1,11 @@
 
 Gem::Specification.new do |spec|
   spec.name        = "thefuntasty_danger"
-  spec.version     = "0.1.4"
+  spec.version     = "0.1.5"
   spec.authors     = ["Matěj Kašpar Jirásek"]
   spec.email       = ["matej.jirasek@thefuntasty.com"]
 
-  spec.summary     = "The Danger rules we use @ The Funtasty"
+  spec.summary     = "The Danger rules we use at The Funtasty"
   spec.description = "Danger configuration used at The Funtasty, currently mainly for iOS development"
   spec.homepage    = "https://github.com/thefuntasty/danger"
   spec.license     = "MIT"
