@@ -11,7 +11,7 @@ branch_name_pattern = /^(feature|hotfix|fix)\/([A-Z]{2,})-\d+-/
 # Convenience variables
 has_correct_prefix = github.branch_for_head.match(/^(feature|hotfix|fix|release|housekeep)\//)
 is_feature_or_fix = github.branch_for_head.match(/^(feature|hotfix|fix)\//)
-can_be_merged_to_master = github.branch_for_head.match(/^(release|hotfix)\//)
+can_be_merged_to_master = github.branch_for_head.match(/^(release|hotfix|develop)\//)
 
 branch_contains_jira_id = github.branch_for_head.match(branch_name_pattern)
 title_contains_jira_id = github.pr_title.match(pr_title_pattern)
