@@ -1,7 +1,6 @@
 # Configuration
 jira_link = "https://thefuntasty.atlassian.net/browse/"
 max_pr_length = 500
-swiftlint_binary_path = './Pods/SwiftLint/swiftlint'
 build_report_file = 'build/reports/errors.json'
 
 # Regular expressions for PR title and branch
@@ -46,12 +45,9 @@ end
 # Check commit messages
 commit_lint.check warn: :all, disable: [:subject_length]
 
-# Lint Swift files if possible
-if File.file?(swiftlint_binary_path) then
-  swiftlint.binary_path = './Pods/SwiftLint/swiftlint'
-  swiftlint.max_num_violations = 20
-  swiftlint.lint_files inline_mode: true
-end
+# Lint Swift files
+swiftlint.max_num_violations = 20
+swiftlint.lint_files inline_mode: true
 
 # Send iOS build results if possible
 if File.file?(build_report_file) then
