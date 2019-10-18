@@ -46,9 +46,10 @@ end
 # Check commit messages
 commit_lint.check warn: :all, disable: [:subject_length]
 
-# Lint Swift files if possible
-if File.file?(swiftlint_binary_path) then
-  swiftlint.binary_path = './Pods/SwiftLint/swiftlint'
+# Run Swiftlint if possible. 
+# There is no easier way to check, if danger-swiftlint is installed
+if `gem list -i danger-swiftlint`.strip == "true" then
+  swiftlint.binary_path = swiftlint_binary_path if File.file?(swiftlint_binary_path)
   swiftlint.max_num_violations = 20
   swiftlint.lint_files inline_mode: true
 end
