@@ -13,7 +13,7 @@ These are the rules we use for checking our pull requests by Danger optimized fo
 - iOS specific:
   - Swiftlint should not produce any warnings.
   - Xcode build should not produce any warnings.
-  
+
 Examples of pretty branch names:
 
 - `feature/JIRA-00-chat-screen`
@@ -48,11 +48,19 @@ And last if we need to install/update our rules, we only need to call:
 
 ```
 bundle install
-# or
-bundle update
 ```
 
-After the setup is finished we can simply import the Dangerfile from the gem.
+After the setup is finished we can simply create `Dangerfile` and import this configuration.
+
+```
+danger.import_dangerfile(gem: 'thefuntasty_danger')
+```
+
+For testing locally we can just call:
+
+```
+bundle exec danger local
+```
 
 If we need to automate this (for CI) and do not have other Ruby dependencies then this short script will install everything we need and run Danger (if of course Ruby and bundler are installed):
 
