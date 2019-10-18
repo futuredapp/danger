@@ -1,5 +1,7 @@
 # Danger rules at The Funtasty
 
+[![Gem Version](https://badge.fury.io/rb/thefuntasty_danger.svg)](https://badge.fury.io/rb/thefuntasty_danger)
+
 These are the rules we use for checking our pull requests by Danger optimized for mobile app development:
 
 - Only `release/` branches can point to master.
