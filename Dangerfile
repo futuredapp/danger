@@ -11,7 +11,7 @@ branch_name_pattern = /^(feature|hotfix|fix)\/([A-Z]{2,})-\d+-/
 # Convenience variables
 has_correct_prefix = github.branch_for_head.match(/^(feature|hotfix|fix|release|housekeep)\//)
 is_feature_or_fix = github.branch_for_head.match(/^(feature|hotfix|fix)\//)
-can_be_merged_to_master = github.branch_for_head.match(/^(release|hotfix|develop)\//)
+can_be_merged_to_master = github.branch_for_head.match(/^((release|hotfix)\/|develop$)/)
 
 branch_contains_jira_id = github.branch_for_head.match(branch_name_pattern)
 title_contains_jira_id = github.pr_title.match(pr_title_pattern)
@@ -23,7 +23,7 @@ is_pr_big = git.insertions > max_pr_length
 github.dismiss_out_of_range_messages
 
 # Throw errors
-fail("Only hotfix and release can point to master.") if !can_be_merged_to_master and github.branch_for_base == "master"
+fail("Only develop, hotfix and release can point to master.") if !can_be_merged_to_master and github.branch_for_base == "master"
 
 # Throw descriptive warnings
 warn("Branch name should have `release/`, `hotfix/`, `fix/`, `housekeep/` or `feature/` prefix.") if !has_correct_prefix
@@ -46,7 +46,7 @@ end
 # Check commit messages
 commit_lint.check warn: :all, disable: [:subject_length]
 
-# Run Swiftlint if possible. 
+# Run Swiftlint if possible.
 # There is no easier way to check, if danger-swiftlint is installed
 if `gem list -i danger-swiftlint`.strip == "true" then
   swiftlint.binary_path = swiftlint_binary_path if File.file?(swiftlint_binary_path)
