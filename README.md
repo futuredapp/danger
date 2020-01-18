@@ -1,6 +1,8 @@
-# Danger rules at The Funtasty
+# Danger rules at [Futured](https://www.futured.app)
 
 [![Gem Version](https://badge.fury.io/rb/thefuntasty_danger.svg)](https://badge.fury.io/rb/thefuntasty_danger)
+
+*Note: Our company name was Funtasty before, therefore the name.*
 
 These are the rules we use for checking our pull requests by Danger optimized for mobile app development:
 
@@ -84,4 +86,4 @@ gem push thefuntasty_danger-X.X.X.gem
 
 ## Support
 
-If you have any questions or ideas contact the maintainer of the repo at matej.jirasek@thefuntasty.com.
+If you have any questions or ideas contact the maintainer of the repo at matej.jirasek@futured.app.
