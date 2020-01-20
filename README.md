@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/thefuntasty_danger.svg)](https://badge.fury.io/rb/thefuntasty_danger)
 
-*Note: Our company name was Funtasty before, therefore the name.*
+*Note: Our company name was The Funtasty before the rebranding, therefore the name `thefuntasty_danger`*
 
 These are the rules we use for checking our pull requests by Danger optimized for mobile app development:
 
