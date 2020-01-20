@@ -5,7 +5,7 @@ Gem::Specification.new do |spec|
   spec.authors     = ["Matěj Kašpar Jirásek"]
   spec.email       = ["matej.jirasek@futured.app"]
 
-  spec.summary     = "The Danger rules we use at The Funtasty"
+  spec.summary     = "The Danger rules we use at Futured"
   spec.description = "Danger configuration used at Futured, currently mainly for iOS development"
   spec.homepage    = "https://github.com/futuredapp/danger"
   spec.license     = "MIT"
