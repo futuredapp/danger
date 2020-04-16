@@ -1,3 +1,5 @@
+![The Funtasty Danger](doc/logo.svg)
+
 # Danger rules at [Futured](https://www.futured.app)
 
 [![Gem Version](https://badge.fury.io/rb/thefuntasty_danger.svg)](https://badge.fury.io/rb/thefuntasty_danger)
@@ -84,6 +86,10 @@ gem build thefuntasty_danger
 gem push thefuntasty_danger-X.X.X.gem
 ```
 
-## Support
+## Contributors
 
-If you have any questions or ideas contact the maintainer of the repo at matej.jirasek@futured.app.
+Current maintainer and main contributor is [Matěj Jirásek](https://github.com/mkj-is), <matej.jirasek@futured.app>.
+
+## License
+
+Project is available under the MIT license. See the [LICENSE file](LICENSE) for more information.
