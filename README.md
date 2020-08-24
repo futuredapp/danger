@@ -1,4 +1,4 @@
-![The Funtasty Danger](doc/logo.svg)
+<img align="right" alt="The Funtasty Danger logo" src="doc/logo.svg">
 
 # Danger rules at [Futured](https://www.futured.app)
 
