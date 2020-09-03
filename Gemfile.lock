@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    thefuntasty_danger (0.5.0)
+    thefuntasty_danger (0.6.0)
       danger (~> 8)
       danger-commit_lint (~> 0)
       danger-swiftlint (~> 0)
