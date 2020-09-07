@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |spec|
   spec.name        = "thefuntasty_danger"
-  spec.version     = "0.5.0"
+  spec.version     = "0.6.0"
   spec.authors     = ["Matěj Kašpar Jirásek"]
   spec.email       = ["matej.jirasek@futured.app"]
 
@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
 
   spec.files       = ['Dangerfile']
 
-  spec.add_runtime_dependency 'danger', '~> 6'
+  spec.add_runtime_dependency 'danger', '~> 8'
   spec.add_runtime_dependency 'danger-commit_lint', '~> 0'
   spec.add_runtime_dependency 'danger-xcode_summary', '~> 0'
   spec.add_runtime_dependency 'danger-swiftlint', '~> 0'
