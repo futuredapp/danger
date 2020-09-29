@@ -11,7 +11,7 @@ branch_name_pattern = /^(feature|hotfix|fix)\/([A-Z]{2,})-\d+-/
 # Convenience variables
 has_correct_prefix = github.branch_for_head.match(/^(feature|hotfix|fix|release|housekeep)\//)
 is_feature_or_fix = github.branch_for_head.match(/^(feature|hotfix|fix)\//)
-can_be_merged_to_master = github.branch_for_head.match(/^((release|hotfix)\/|develop$)/)
+can_be_merged_to_main = github.branch_for_head.match(/^((release|hotfix)\/|develop$)/)
 
 branch_contains_jira_id = github.branch_for_head.match(branch_name_pattern)
 title_contains_jira_id = github.pr_title.match(pr_title_pattern)
@@ -23,7 +23,9 @@ is_pr_big = git.insertions > max_pr_length
 github.dismiss_out_of_range_messages
 
 # Throw errors
-fail("Only develop, hotfix and release can point to master.") if !can_be_merged_to_master and github.branch_for_base == "master"
+if !can_be_merged_to_main and ["main", "master"].include? github.branch_for_base then
+  fail("Only develop, hotfix and release can point to main.")
+end
 
 # Throw descriptive warnings
 warn("Branch name should have `release/`, `hotfix/`, `fix/`, `housekeep/` or `feature/` prefix.") if !has_correct_prefix
