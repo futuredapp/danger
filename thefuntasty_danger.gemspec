@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |spec|
   spec.name        = "thefuntasty_danger"
-  spec.version     = "0.7.0"
+  spec.version     = "0.8.0"
   spec.authors     = ["Matěj Kašpar Jirásek"]
   spec.email       = ["matej.jirasek@futured.app"]
 
