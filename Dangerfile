@@ -3,6 +3,7 @@ jira_link = "https://thefuntasty.atlassian.net/browse/"
 max_pr_length = 500
 swiftlint_binary_path = './Pods/SwiftLint/swiftlint'
 build_report_file = 'build/reports/errors.json'
+dependency_configuration_files = ['Package.swift', 'Package.resolved', 'Podfile', 'Cartfile']
 
 # Regular expressions for PR title and branch
 pr_title_pattern = /^([A-Z]{2,}-\d+)\s\w{2,}/
@@ -61,4 +62,14 @@ if File.file?(build_report_file) then
   xcode_summary.ignored_files = '**/Pods/**'
   xcode_summary.inline_mode = true
   xcode_summary.report build_report_file
+end
+
+# Warn about documenting dependency changes
+modified_dependencies = git.modified_files.any? { |path|
+  dependency_configuration_files.any? { |config|
+    path.end_with? config
+  }
+}
+if !git.modified_files.include?("README.md") and modified_dependencies then
+  warn("README.md should be updated when dependencies are changed.")
 end
