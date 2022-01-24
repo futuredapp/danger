@@ -59,7 +59,7 @@ end
 # Send iOS build results if possible
 xcresult_file = Dir["fastlane/test_output/*.xcresult"].first
 if File.exist? xcresult_file then
-  xcode_summary.ignored_files = '**/Pods/**'
+  xcode_summary.ignored_files = 'Pods/**'
   xcode_summary.inline_mode = true
   xcode_summary.report xcresult_file
 end
