@@ -14,6 +14,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'danger', '~> 8'
   spec.add_runtime_dependency 'danger-commit_lint', '~> 0'
-  spec.add_runtime_dependency 'danger-xcode_summary', '~> 0'
+  spec.add_runtime_dependency 'danger-xcode_summary', '~> 1'
   spec.add_runtime_dependency 'danger-swiftlint', '~> 0'
 end

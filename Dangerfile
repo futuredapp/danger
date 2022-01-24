@@ -2,7 +2,6 @@
 jira_link = "https://thefuntasty.atlassian.net/browse/"
 max_pr_length = 500
 swiftlint_binary_path = './Pods/SwiftLint/swiftlint'
-build_report_file = 'build/reports/errors.json'
 dependency_configuration_files = ['Package.swift', 'Package.resolved', 'Podfile', 'Cartfile']
 
 # Regular expressions for PR title and branch
@@ -58,10 +57,11 @@ if `gem list -i danger-swiftlint`.strip == "true" then
 end
 
 # Send iOS build results if possible
-if File.file?(build_report_file) then
-  xcode_summary.ignored_files = '**/Pods/**'
+xcresult_file = Dir["fastlane/test_output/*.xcresult"].first
+if File.exist? xcresult_file then
+  xcode_summary.ignored_files = 'Pods/**'
   xcode_summary.inline_mode = true
-  xcode_summary.report build_report_file
+  xcode_summary.report xcresult_file
 end
 
 # Warn about documenting dependency changes
