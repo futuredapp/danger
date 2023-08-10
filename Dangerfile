@@ -5,7 +5,7 @@ swiftlint_binary_path = './Pods/SwiftLint/swiftlint'
 dependency_configuration_files = ['Package.swift', 'Package.resolved', 'Podfile', 'Cartfile']
 
 # Regular expressions for PR title and branch
-pr_title_pattern = /^([A-Z]{2,}-\d+)\s\w{2,}/
+pr_title_pattern = /^([A-Z]{2,}-\d+)[\:]?\s\w{2,}/
 branch_name_pattern = /^(feature|hotfix|fix)\/([A-Z]{2,})-\d+-/
 
 # Convenience variables
