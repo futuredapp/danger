@@ -6,7 +6,7 @@ dependency_configuration_files = ['Package.swift', 'Package.resolved', 'Podfile'
 
 # Regular expressions for PR title and branch
 pr_title_pattern = /^([A-Z]{2,}-\d+)[\:]?\s\w{2,}/
-branch_name_pattern = /^(feature|hotfix|fix)\/([A-Z]{2,})-\d+-/
+branch_name_pattern = /^(feature|hotfix|fix)\/((([A-Z]{2,})-\d+-)|(([a-z]{2,20})\/(([A-Z]{2,})-\d+-)))/
 
 # Convenience variables
 has_correct_prefix = github.branch_for_head.match(/^(feature|hotfix|fix|release|housekeep)\//)
