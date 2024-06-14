@@ -1,0 +1,23 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    name: Gem / Release
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: ruby/setup-ruby@v1
+    - uses: fac/ruby-gem-setup-credentials-action@v2
+      with:
+        token: ${{ secrets.github_token }}
+
+    - name: Build Gem
+      run: bundle exec rake build
+
+    - name: Release Gem
+      uses: fac/ruby-gem-push-action@v2
