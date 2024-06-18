@@ -1,7 +1,6 @@
 # Configuration
 jira_link = "https://thefuntasty.atlassian.net/browse/"
 max_pr_length = 500
-swiftlint_binary_path = './Pods/SwiftLint/swiftlint'
 dependency_configuration_files = ['Package.swift', 'Package.resolved', 'Podfile', 'Cartfile']
 
 # Regular expressions for PR title and branch
@@ -47,14 +46,6 @@ end
 
 # Check commit messages
 commit_lint.check warn: :all, disable: [:subject_length]
-
-# Run Swiftlint if possible.
-# There is no easier way to check, if danger-swiftlint is installed
-if `gem list -i danger-swiftlint`.strip == "true" then
-  swiftlint.binary_path = swiftlint_binary_path if File.file?(swiftlint_binary_path)
-  swiftlint.max_num_violations = 20
-  swiftlint.lint_files inline_mode: true
-end
 
 # Send iOS build results if possible
 xcresult_file = Dir["fastlane/test_output/*.xcresult"].first
