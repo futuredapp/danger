@@ -1,9 +1,9 @@
 
 Gem::Specification.new do |spec|
   spec.name        = "thefuntasty_danger"
-  spec.version     = "0.9.1"
+  spec.version     = "0.9.2"
   spec.authors     = ["Matěj Kašpar Jirásek"]
-  spec.email       = ["matej.jirasek@futured.app"]
+  spec.email       = ["ops@futured.app"]
 
   spec.summary     = "The Danger rules we use at Futured"
   spec.description = "Danger configuration used at Futured, currently mainly for iOS development"
@@ -15,5 +15,4 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'danger', '~> 9'
   spec.add_runtime_dependency 'danger-commit_lint', '~> 0'
   spec.add_runtime_dependency 'danger-xcode_summary', '~> 1'
-  spec.add_runtime_dependency 'danger-swiftlint', '~> 0'
 end
