@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
 
   spec.files       = ['Dangerfile']
 
+  spec.add_runtime_dependency 'rake', '~> 13'
   spec.add_runtime_dependency 'danger', '~> 9'
   spec.add_runtime_dependency 'danger-commit_lint', '~> 0'
   spec.add_runtime_dependency 'danger-xcode_summary', '~> 1'
