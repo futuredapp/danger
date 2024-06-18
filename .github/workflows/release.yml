@@ -12,13 +12,17 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+    - name: Build Gem
+      run: |
+        bundle install --jobs 4 --retry 3
+        bundle exec rake build
     - name: Setup Credentials
       uses: fac/ruby-gem-setup-credentials-action@v2
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Bundle install
-      run: bundle install --jobs 4 --retry 3
-    - name: Build Gem
-      run: bundle exec rake build
+        user: ""
+        key: rubygems
+        token: ${{secrets.RUBY_GEMS_API_KEY}}
     - name: Release Gem
       uses: fac/ruby-gem-push-action@v2
+      with:
+        key: rubygems
