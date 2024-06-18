@@ -16,6 +16,8 @@ jobs:
       uses: fac/ruby-gem-setup-credentials-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Bundle install
+        bundle install --jobs 4 --retry 3
     - name: Build Gem
       run: bundle exec rake build
     - name: Release Gem
