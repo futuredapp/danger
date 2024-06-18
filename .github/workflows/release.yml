@@ -17,7 +17,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
     - name: Bundle install
-        bundle install --jobs 4 --retry 3
+      run: bundle install --jobs 4 --retry 3
     - name: Build Gem
       run: bundle exec rake build
     - name: Release Gem
