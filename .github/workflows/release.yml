@@ -7,17 +7,16 @@ on:
 jobs:
   release:
     name: Gem / Release
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
-    - uses: actions/checkout@v4
-    - uses: ruby/setup-ruby@v1
-    - uses: fac/ruby-gem-setup-credentials-action@v2
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup Credentials
+      uses: fac/ruby-gem-setup-credentials-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Build Gem
       run: bundle exec rake build
-
     - name: Release Gem
       uses: fac/ruby-gem-push-action@v2
