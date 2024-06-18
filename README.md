@@ -15,7 +15,6 @@ These are the rules we use for checking our pull requests by Danger optimized fo
 - Should not be over 500 lines.
 - Commit names should start with a large letter and should not be too long.
 - iOS specific:
-  - Swiftlint should not produce any warnings.
   - Xcode build should not produce any warnings.
 
 Examples of pretty branch names:
