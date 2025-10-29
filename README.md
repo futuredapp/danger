@@ -1,4 +1,4 @@
-<img align="right" alt="The Funtasty Danger logo" src="doc/logo.svg">
+<img align="right" alt="The Funtasty Danger logo" src="doc/logo.svg" height="80">
 
 # Danger rules at [Futured](https://www.futured.app)
 
