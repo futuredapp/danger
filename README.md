@@ -87,7 +87,7 @@ gem push thefuntasty_danger-X.X.X.gem
 
 ## Contributors
 
-Current maintainer and main contributor is [Matěj Jirásek](https://github.com/mkj-is), <matej.jirasek@futured.app>.
+Current maintainer is [Jakub Marek](https://github.com/jmarek41), <jakub.marek@futured.app>.
 
 ## License
 
