@@ -78,12 +78,7 @@ bundle exec danger
 
 ## Deployment
 
-For deploying to RubyGems run these commands:
-
-```
-gem build thefuntasty_danger
-gem push thefuntasty_danger-X.X.X.gem
-```
+Automatic via GH actions after tagging the `main` branch
 
 ## Contributors
 
