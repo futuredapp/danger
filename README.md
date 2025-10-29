@@ -1,4 +1,4 @@
-<img align="right" alt="The Funtasty Danger logo" src="doc/logo.svg">
+<img align="right" alt="The Funtasty Danger logo" src="doc/logo.svg" height="80">
 
 # Danger rules at [Futured](https://www.futured.app)
 
@@ -78,16 +78,11 @@ bundle exec danger
 
 ## Deployment
 
-For deploying to RubyGems run these commands:
-
-```
-gem build thefuntasty_danger
-gem push thefuntasty_danger-X.X.X.gem
-```
+Automatic via GH actions after tagging the `main` branch
 
 ## Contributors
 
-Current maintainer and main contributor is [Matěj Jirásek](https://github.com/mkj-is), <matej.jirasek@futured.app>.
+Current maintainer is [Jakub Marek](https://github.com/jmarek41), <jakub.marek@futured.app>.
 
 ## License
 

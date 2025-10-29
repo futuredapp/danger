@@ -45,7 +45,7 @@ elsif branch_contains_jira_id then
 end
 
 # Check commit messages
-commit_lint.check warn: :all, disable: [:subject_length]
+commit_lint.check warn: :all, disable: [:subject_length, :subject_cap]
 
 # Send iOS build results if possible
 xcresult_file = Dir["fastlane/test_output/*.xcresult"].first
