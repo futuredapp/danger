@@ -16,7 +16,21 @@ branch_contains_jira_id = github.branch_for_head.match(branch_name_pattern)
 title_contains_jira_id = github.pr_title.match(pr_title_pattern)
 
 is_pr_wip = github.pr_title.include? "[WIP]"
-is_pr_big = git.insertions > max_pr_length
+
+# Count insertions excluding assets
+asset_extensions = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.pdf', '.mov', '.mp4', '.zip', '.ipa', '.dSYM']
+asset_bundle_dirs = ['.imageset', '.appiconset', '.colorset', '.dataset', '.launchimage', '.brandassets']
+
+# Filter out asset files and JSON files in asset bundles
+code_files = git.modified_files.reject do |file|
+  # Exclude files with asset extensions
+  asset_extensions.any? { |ext| file.end_with?(ext) } ||
+  # Exclude JSON files in asset bundle directories
+  (file.end_with?('.json') && asset_bundle_dirs.any? { |dir| file.include?("/#{dir}/") })
+end
+
+code_insertions = code_files.sum { |file| git.diff_for_file(file).insertions } rescue 0
+is_pr_big = code_insertions > max_pr_length
 
 # Do not show out of range issues, not caused by the current PR
 github.dismiss_out_of_range_messages
