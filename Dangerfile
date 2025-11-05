@@ -66,7 +66,11 @@ xcresult_file = Dir["fastlane/test_output/*.xcresult"].first
 if !xcresult_file.nil? then
   xcode_summary.ignored_files = 'Pods/**'
   xcode_summary.inline_mode = true
-  xcode_summary.report xcresult_file
+  begin
+    xcode_summary.report xcresult_file if File.exist?(xcresult_file)
+  rescue => e
+    puts "⚠️  Skipping xcresult report: #{e.message}"
+  end
 end
 
 # Warn about documenting dependency changes
