@@ -2,11 +2,13 @@
 
 # Danger rules at [Futured](https://www.futured.app)
 
+> **Deprecated:** This repository is no longer maintained. Danger has been removed from our CI pipelines. This repository will be archived.
+
 [![Gem Version](https://badge.fury.io/rb/thefuntasty_danger.svg)](https://badge.fury.io/rb/thefuntasty_danger)
 
 *Note: Our company name was The Funtasty before the rebranding, therefore the name `thefuntasty_danger`*
 
-These are the rules we use for checking our pull requests by Danger optimized for mobile app development:
+These are the rules we used for checking our pull requests by Danger optimized for mobile app development:
 
 - Only `release/` branches can point to master.
 - Branch name should have `release/`, `hotfix/`, `fix/`, `housekeep/` or `feature/` prefix.
